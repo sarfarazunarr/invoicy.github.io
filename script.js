@@ -45,7 +45,6 @@ function createInvoice() {
     actioncell.innerHTML = '<button id="del" class=" px-1 mt-1 text-white border border-red-600 hover:bg-transparent hover:border-white transition-all duration-200 rounded-md bg-red-600" onclick="deleteData(this.parentNode.parentNode)">Remove</button>';
     updateTotalAmount();
     reset();
-    generateInvoice();
 }
 function updateTotalAmount() {
     let table = document.getElementById('invoicetable');
