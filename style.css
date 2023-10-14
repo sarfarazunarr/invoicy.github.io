@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+.peer:not(:focus) .peer-focus {
+  transform: none;
+  top: 0;
+  scale: 100%;
+}
