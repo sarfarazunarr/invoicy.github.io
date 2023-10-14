@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Data - Invoicy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="tailwind.min.js"></script>
+</head>
+
+<body class="bg-gray-950 w-full h-full">
+   
+       <nav class="w-full p-2 flex justify-between align-center">
+        <h1 class="w-1/4 md:w-1/4 text-left pt-2 text-white font-semibold cursor-pointer text-3xl pl-2">Invoicy</h1>
+        <div class="hidden md:block">
+            <ul class="list-none pt-3 flex ">
+                <a href="/index.html">
+                    <li class="px-2 text-yellow-400 hover:text-white duration-200 cursor-pointer">Home</li>
+                </a>
+                <a href="/invoices.html">
+                    <li class="px-2 text-gray-400 hover:text-white duration-200 cursor-pointer">Invoices</li>
+                </a>
+                <li class="px-2 text-gray-400 hover:text-white duration-200 cursor-pointer">Help</li>
+                <li class="px-2 text-gray-400 hover:text-white duration-200 cursor-pointer">Explore Projects</li>
+                <li class="px-2 text-gray-400 hover:text-white duration-200 cursor-pointer">Follow For More</li>
+            </ul>
+        </div>
+        <div>
+             <a href="index.html"><button
+                class="px-4 py-2 mx-2 my-2 rounded-md bg-blue-700 text-white hover:bg-blue-600 duration-200 transition-colors">Create Invoice</button></a>
+        </div>
+    </nav>
+   
+   
+    <div class="w-[94%] md:w-3/4 p-3 mt-10 rounded-md border bg-gray-900 border-gray-700 mx-auto shadow-lg shadow-black overflow-auto">
+        <h3 class="text-left px-2 text-white py-4 text-2xl font-semibold">All Invoices</h3>
+
+        <div class="hidden justify-center align-middle" id="errormsg">
+            <h2 class="text-center text-white text-2xl py-5 font-bold">Sorry! No Any Invoice detail found </h2>
+            <a href="index.html"><button
+                    class="px-4 py-2 border border-blue-700 translate-x-24 md:translate-x-full md:ml-48 justify-center my-2  rounded-md bg-blue-700 text-white hover:bg-transparent hover:text-white hover:border-white duration-200 transition-colors">Create
+                    Invoice</button></a>
+        </div>
+        <table class="hidden w-full text-white border-gray-800 text-center overflow-x-scroll " id="invoicetable">
+            <thead>
+                <tr class=" bg-gray-700 border border-gray-800 overflow-scroll-x">
+
+                    <th class="text-white py-2 px-3 border-x border-gray-800 text-center ">Name</th>
+                    <th class="text-white py-2 border-x border-gray-800 text-center ">Phone</th>
+                    <th class="text-white py-2 border-x border-gray-800 text-center ">Email</th>
+                    <th class="text-white py-2 border-x border-gray-800 text-center ">Products</th>
+                    <th class="text-white py-2 border-x border-gray-800 px-2">Amount</th>
+                    <th class="text-white py-2 border-x border-gray-800 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+    <script>
+
+        function getData() {
+            const invoicedata = localStorage.getItem('customers');
+            console.log(invoicedata)
+            if (invoicedata === null || invoicedata.length === 2) {
+                const errormsg = document.getElementById('errormsg').classList.replace('hidden', 'flex-col');
+            }
+            else if (invoicedata !== null) {
+                const invoiceArray = JSON.parse(invoicedata);
+                const tableBody = document.getElementById('invoicetable').getElementsByTagName('tbody')[0];
+                document.getElementById('invoicetable').classList.remove('hidden')
+
+                tableBody.innerHTML = '';
+                const id = 1;
+
+                invoiceArray.forEach(function (item, index) {
+                    const row = tableBody.insertRow();
+                    const name = row.insertCell(0)
+                    const mobile = row.insertCell(1)
+                    const email = row.insertCell(2)
+                    const products = row.insertCell(3)
+                    const amount = row.insertCell(4)
+                    const action = row.insertCell(5)
+
+                    name.innerHTML = item.name;
+                    mobile.innerHTML = item.phone;
+                    email.innerHTML = item.email;
+                    products.innerHTML = item.products;
+                    amount.innerHTML = item.amount;
+                    action.innerHTML = `<button class='bg-red-500 hover-bg-red-700 transition-all duration-200 text-white px-3 py-1 my-2 rounded-md' onclick="removeItem(${index})">Delete</button>`;
+
+
+                });
+            }
+        }
+
+        function removeItem(index) {
+            const invoicedata = localStorage.getItem('customers');
+
+            if (invoicedata !== null) {
+                const invoiceArray = JSON.parse(invoicedata);
+
+                // Remove the item at the specified index
+                invoiceArray.splice(index, 1);
+
+                // Update Local Storage with the modified array
+                localStorage.setItem('customers', JSON.stringify(invoiceArray));
+
+                // Reload the data to update the table
+                getData();
+            }
+        }
+
+        getData();
+
+    </script>
+</body>

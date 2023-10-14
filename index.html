@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Invoicy is a small web project that helps you to create invoices easily and calculate prices instantly with customer details. For more please visit now">
+    <meta name="keywords" content="invoice, invoicegenerator, free-invoice, offline-invoice, sarfaraz-projects ">
+    <!-- <link rel="shortcut icon" href="favicon.png" type="image/x-icon"> -->
+    <title>Online Invoice Generator - Invoicy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="tailwind.min.js"></script>
+</head>
+
+<body class="bg-gray-950 w-full h-full">
+    <nav class="w-full p-2 flex justify-between align-center">
+        <h1 class="w-1/4 md:w-1/4 text-left pt-2 text-white font-semibold cursor-pointer text-3xl pl-2">Invoicy</h1>
+        <div class="hidden md:block">
+            <ul class="list-none pt-3 flex ">
+                <a href="/">
+                    <li class="px-2 text-yellow-400 hover:text-white duration-200 cursor-pointer">Home</li>
+                </a>
+                <a href="/invoices.html">
+                    <li class="px-2 text-gray-400 hover:text-white duration-200 cursor-pointer">Invoices</li>
+                </a>
+                <a href="https://github.com/sarfarazunarr"><li class="px-2 text-gray-400 hover:text-white duration-200 cursor-pointer">Follow For More</li></a>
+            </ul>
+        </div>
+        <div>
+             <a href="/invoices"><button
+                class="px-4 py-2 mx-2 my-2 rounded-md bg-blue-700 text-white hover:bg-blue-600 duration-200 transition-colors">View Invoices</button></a>
+        </div>
+    </nav>
+
+    <div class="container my-4 mx-auto">
+        <h3 class=" text-center text-white text-3xl font-semibold">Create Invoice</h3>
+        <form class="my-2 w-3/4 mx-2 md:w-2/4 mx-auto">
+            <div class="md:grid-cols-3 mt-6 gap-4 md:flex">
+                <div class="relative my-2 md:my-0">
+                    <input type="text"
+                        class="w-full py-2 px-2 rounded-md bg-transparent border border-gray-700 text-gray-300 outline-none focus:border-gray-400 transition-colors duration-200 placeholder:text-gray-400 peer"
+                        placeholder="" id="customer-name">
+                    <label for="name"
+                        class="absolute text-sm text-gray-400 duration-200  transform -translate-y-4 scale-75 top-2 origin-[0] bg-gray-950 px-3 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus-within:-translate-y-4 left-1">Customer
+                        Name</label>
+                </div>
+                <div class="relative my-2 md:my-0">
+                    <input type="text"
+                        class="w-full py-2 px-2 rounded-md bg-transparent border border-gray-700 text-gray-300 outline-none focus:border-gray-400 transition-colors duration-200 placeholder:text-gray-400 peer"
+                        placeholder="" id="customer-phone">
+                    <label for="phone"
+                        class="absolute text-sm text-gray-400 duration-200  transform -translate-y-4 scale-75 top-2 origin-[0] bg-gray-950 px-3 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus-within:-translate-y-4 left-1">Customer
+                        Phone</label>
+                </div>
+                <div class="relative my-2 md:my-0">
+                    <input type="email"
+                        class="w-full py-2 px-2 rounded-md bg-transparent border border-gray-700 text-gray-300 outline-none focus:border-gray-400 transition-colors duration-200 placeholder:text-gray-400 peer"
+                        placeholder="" id="customer-email">
+                    <label for="email"
+                        class="absolute text-sm text-gray-400 duration-200  transform -translate-y-4 scale-75 top-2 origin-[0] bg-gray-950 px-3 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus-within:-translate-y-4 left-1">Customer
+                        Email</label>
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+
+    <div class="w-[90%] md:w-2/4 p-3 mt-10 rounded-md border bg-gray-900 border-gray-700 mx-auto shadow-lg shadow-black">
+        <h3 class="text-left px-2 text-white text-2xl font-semibold">Add Product</h3>
+        <div class="grid-cols-3 mt-6 gap-4 md:flex">
+            <div class="relative w-full my-1 md:my-0 md:w-2/6 ">
+                <input type="text"
+                    class="w-full py-2 px-2 rounded-md bg-transparent border border-gray-700 text-gray-300 outline-none focus:border-gray-400 transition-colors duration-200 placeholder:text-gray-400 peer"
+                    id="product-name" placeholder="">
+                <label for="product-name"
+                    class="absolute text-md text-gray-400 duration-200  transform -translate-y-4 scale-75 top-2 origin-[0] bg-gray-900 px-3 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus-within:-translate-y-4 left-1">Product
+                    Name</label>
+
+            </div>
+            <div class="relative w-[49%] md:w-1/5 float-left">
+                <input type="number"
+                    class="w-full py-2 px-2 rounded-md bg-transparent border border-gray-700 text-gray-300 outline-none focus:border-gray-400 transition-colors duration-200 placeholder:text-gray-400 peer"
+                    placeholder="" id="qty">
+                <label for="qty"
+                    class="absolute text-md text-gray-400 duration-200  transform -translate-y-4 scale-75 top-2  origin-[0] bg-gray-900 px-3 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus-within:-translate-y-4 left-1">Qty</label>
+            </div>
+            <div class="relative w-[49%] md:w-1/5 float-right">
+                <input type="number"
+                    class="w-full py-2 px-2 rounded-md bg-transparent border border-gray-700 text-gray-300 outline-none focus:border-gray-400 transition-colors duration-200 placeholder:text-gray-400 peer"
+                    placeholder="" id="price">
+                <label for="price"
+                    class="absolute text-md text-gray-400 duration-200  transform -translate-y-4 scale-75 top-2  origin-[0] bg-gray-900 px-3 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus-within:-translate-y-4 left-1">Price</label>
+            </div>
+            <button
+                class="w-full md:w-1/5 py-2 md:py-1 px-2 rounded-md bg-blue-800 text-white border border-blue-800 hover:border-white hover:bg-transparent transition-colors duration-200 my-2 md:mt-1 md:mb-2"
+                onclick="createInvoice()">Add</button>
+        </div>
+        
+        <div class="flex justify-between pt-4 my-2 md:my-0 px-2">
+            <p class="text-white text-sm md:text-md">No. of Product <span id="totalproducts"></span></p>
+            <p class="text-white text-sm md:text-md">Total: Rs.<span id="totalamount">0</span></p>
+        </div>
+        <table class=" w-full text-white border-gray-800 text-center " id="invoicetable">
+            <tr class=" bg-gray-700 border border-gray-800">
+                <th class="text-white py-2 border-x border-gray-800 text-center font-semibold text-sm ">Product</th>
+                <th class="text-white py-2 border-x border-gray-800 text-center font-semibold text-sm ">Price</th>
+                <th class="text-white py-2 border-x border-gray-800 text-center font-semibold text-sm ">Qty</th>
+                <th class="text-white py-2 border-x border-gray-800 px-2 font-semibold text-sm">Sub Value</th>
+                <th class="text-white py-2 border-x border-gray-800 text-center font-semibold text-sm">Action</th>
+            </tr>
+            <tbody></tbody>
+        </table>
+        <div class="block justify-between mt-4">
+            <p id="msg" class="text-sm text-center text-blue-500 mt-3 md:mt-2 md:text-left px-2">Your data will be saved in your browser</p>
+            <div class="flex justify-center align-center my-3">
+                <button
+                    class="py-1 px-2 md:px-3 mx-2 rounded-md bg-blue-800 text-white border border-blue-800 hover:border-white hover:bg-transparent transition-colors duration-200 text-sm"
+                    onclick="generatePDF()">Download Image</button>
+                <button
+                    class="py-1 px-2 rounded-md bg-blue-800 text-white border border-blue-800 hover:border-white hover:bg-transparent transition-colors duration-200"
+                    onclick="saveinvoice()">Save
+                    Invoice</button>
+            </div>
+        </div>
+    </div>
+    <div id='popup'
+        class=' hidden fixed w-[90%]  md:w-1/3 top-1/2 z-50 translate-x-5 md:translate-x-full -translate-y-1/2 bg-gray-800 p-4 rounded-md transition-all duration-200'>
+        <h3 class='text-2xl text-center py-3 text-white font-semibold'>Welcome to Invoicly</h3>
+        <p class='text-center pb-3 text-gray-400 text-sm'>Here you can easily create invoice with the customer name you
+            can generate pdf and also you can save the number of products and total price with the customer name.</p>
+        <p class='text-white text-center text-md '>Soon we will allow users to save product name and quantities.</p>
+        <p class='text-center py-2 text-gray-500 hover:text-white transition-colors duration-200 cursor-pointer'
+            onclick="closepopup()">
+            Close</p>
+    </div>
+    <div id='popupover' class=' hidden fixed top-0 left-0 w-full h-screen filter backdrop-blur-md'></div>
+
+</body>
+<script src="script.js"></script>
+
+
+
+</html>
